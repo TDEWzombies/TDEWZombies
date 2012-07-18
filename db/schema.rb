@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120718001927) do
+ActiveRecord::Schema.define(:version => 20120718021348) do
+
+  create_table "maps", :force => true do |t|
+    t.string   "description"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "date"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "text"

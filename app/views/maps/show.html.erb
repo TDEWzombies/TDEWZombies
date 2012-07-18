@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @map.description %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @map.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @map.longitude %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @map.date %>
+</p>
+
+<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?client=safari&amp;q=phoenix+az&amp;oe=UTF-8&amp;ie=UTF8&amp;hq=&amp;hnear=Phoenix,+Maricopa,+Arizona&amp;gl=us&amp;ll=33.448377,-112.074037&amp;spn=0.040679,0.07699&amp;z=14&amp;output=embed"></iframe>
+
+
+<%= link_to 'Edit', edit_map_path(@map) %> |
+<%= link_to 'Back', maps_path %>
