@@ -1,33 +1,32 @@
-<%= form_for(@map) do |f| %>
-  <% if @map.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@map.errors.count, "error") %> prohibited this map from being saved:</h2>
-
-      <ul>
-      <% @map.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @map, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :latitude, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :latitude, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :longitude, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :longitude, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :Mapa, :class => 'control-label' %>
+    <div class="controls">
+            <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?client=safari&amp;q=phoenix+az&amp;oe=UTF-8&amp;ie=UTF8&amp;hq=&amp;hnear=Phoenix,+Maricopa,+Arizona&amp;gl=us&amp;ll=33.448377,-112.074037&amp;spn=0.040679,0.07699&amp;z=14&amp;output=embed"></iframe>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.datetime_select :date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                maps_path, :class => 'btn' %>
   </div>
 <% end %>
