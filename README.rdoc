@@ -19,3 +19,9 @@ User Stories:
 
 - Como usuario quiero seleccionar una ubicación en google maps
 - Como usuario quiero almacenar la referencias geográfico de un punto y colocarle una descripción.
+
+Mockups
+
+Lista de Mapas	: https://docs.google.com/file/d/0B3Dmx9-81CUPTDgxYk5QUEY2azA/edit
+Crear un Mapas	: https://docs.google.com/file/d/0B3Dmx9-81CUPS3lLblJVYnQ4bXM/edit
+Editar un Mapas	: https://docs.google.com/file/d/0B3Dmx9-81CUPRVZwTFlBZGJ6ZG8/edit
