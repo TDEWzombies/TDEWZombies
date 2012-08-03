@@ -1,42 +1,66 @@
+<% content_for :javascript_includes do %>
+<%= javascript_include_tag "slides.min.jquery.js" %>
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places" %>
+<%= javascript_include_tag "maps.js" %>
+      <script>
+            $(function(){
+                $("#slides").slides({
+                  generatePagination: true,
+                  animationComplete: function(event){
+                    initializegooglemaps(arreglodiv[event - 1],false,false,arreglolat[event - 1], arreglolng[event - 1], 17);
+                  }
+                });
+            });
+        </script>
+<% end %>
+
 <%- model_class = Map -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:latitude) %></th>
-      <th><%= model_class.human_attribute_name(:longitude) %></th>
-      <th><%= model_class.human_attribute_name(:date) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @maps.each do |map| %>
-      <tr>
-        <td><%= link_to map.id, map_path(map) %></td>
-        <td><%= map.description %></td>
-        <td><%= map.latitude %></td>
-        <td><%= map.longitude %></td>
-        <td><%= map.date %></td>
-        <td><%=l map.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+
+<% arreglodiv = "var arreglodiv = [" 
+   arreglolat = "var arreglolat = [" 
+   arreglolng = "var arreglolng = [" %>
+
+<div id="slides">
+  <div class="slides_container">
+     <% @maps.each do |map| %>
+      <div class="slide">
+        <h3><%= map.description %></h3>
+
+        <div id="d<%= map.id%>" class="gmap_canvas"></div>
+        
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_map_path(map), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+         <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       map_path(map),
                       :method => :delete,
                       :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
                       :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          
+        <input type="button" class="btn" onclick="getURLMap(<%= map.latitude %>,<%= map.longitude %>,'<%= map.description %>');" value="Go to Google Maps"></input>
+
+        <% arreglodiv = arreglodiv + " \"d#{map.id}\","
+           arreglolat = arreglolat + " \"#{map.latitude}\","
+           arreglolng = arreglolng + " \"#{map.longitude}\","
+        %>
+
+      </div>
+      <% end %>
+  </div>
+  <a href="#" class="prev"><%= image_tag "arrow-prev.png" %></a>
+  <a href="#" class="next"><%= image_tag "arrow-next.png" %></a>
+</div>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_map_path,
             :class => 'btn btn-primary' %>
+
+<script>
+  <%= arreglodiv[0,arreglodiv.length-1].html_safe + "];\n" + 
+      arreglolat[0,arreglolat.length-1].html_safe + "];\n" +
+      arreglolng[0,arreglolng.length-1].html_safe + "];\n" +
+      "initializegooglemaps(arreglodiv[0],false,false,arreglolat[0], arreglolng[0], 17);"
+  %>
+</script>

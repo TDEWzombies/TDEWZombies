@@ -12,3 +12,46 @@
  *= require_tree .
 
  */
+
+.gmap_canvas {
+	height: 400px;
+	width: 600px;
+	margin-top: 0.6em;
+	z-index:0;
+}
+
+#slides {
+	position:absolute;
+	top:200px;
+	left:124px;
+}
+
+.slides_container {
+	width:700px;
+	height:460px;
+	overflow:hidden;
+	position:relative;
+	z-index:0;
+}
+
+#slides .next,#slides .prev {
+	position:absolute;
+	top:180px;
+	left:-24px;
+	width:24px;
+	height:43px;
+	display:block;
+	z-index:101;
+}
+
+#slides .next {
+	left:600px;
+}
+
+.pagination li a {
+	background-color:white;
+}
+
+.pagination li.current a {
+	background-color:gray;
+}

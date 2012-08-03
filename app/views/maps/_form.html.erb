@@ -1,3 +1,8 @@
+<% content_for :javascript_includes do %>
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places" %>
+<%= javascript_include_tag "maps.js" %>
+<% end %>
+
 <%= form_for @map, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
@@ -5,23 +10,16 @@
       <%= f.text_field :description, :class => 'text_field' %>
     </div>
   </div>
+
+      <%= f.hidden_field :latitude %>
+      <%= f.hidden_field :longitude %>
+
   <div class="control-group">
-    <%= f.label :latitude, :class => 'control-label' %>
+    <%= f.label :Map, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :latitude, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :longitude, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :longitude, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :Mapa, :class => 'control-label' %>
-    <div class="controls">
-            <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?client=safari&amp;q=phoenix+az&amp;oe=UTF-8&amp;ie=UTF8&amp;hq=&amp;hnear=Phoenix,+Maricopa,+Arizona&amp;gl=us&amp;ll=33.448377,-112.074037&amp;spn=0.040679,0.07699&amp;z=14&amp;output=embed"></iframe>
-    </div>
+      <input id="searchTextField" type="text" style="width:600px">
+      <div id="map_canvas" class="gmap_canvas"></div>
+      </div>
   </div>
 
   <div class="form-actions">

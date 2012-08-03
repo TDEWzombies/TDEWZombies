@@ -12,8 +12,8 @@ Descripción:
 
 Se realizará un mantenimiento en donde los usuario podrán almacenar referencias de direcciones en google maps y mostrarlas.
 
-Lean Canvas : http://leancanvas.com/canvases/25581/
-Heroku      : http://tdewzombies.herokuapp.com/
+- Lean Canvas : http://leancanvas.com/canvases/25581/
+- Heroku      : http://tdewzombies.herokuapp.com/
 
 User Stories:
 
@@ -28,5 +28,5 @@ Criterios de Aceptación:
 Mockups
 
 - Lista de Mapas	: https://docs.google.com/file/d/0B3Dmx9-81CUPTDgxYk5QUEY2azA/edit
-- Crear un Mapas	: https://docs.google.com/file/d/0B3Dmx9-81CUPS3lLblJVYnQ4bXM/edit
+- Crear un Mapa 	: https://docs.google.com/file/d/0B3Dmx9-81CUPS3lLblJVYnQ4bXM/edit
 - Editar un Mapa	: https://docs.google.com/file/d/0B3Dmx9-81CUPRVZwTFlBZGJ6ZG8/edit

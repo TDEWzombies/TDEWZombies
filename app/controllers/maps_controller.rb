@@ -14,7 +14,7 @@ class MapsController < ApplicationController
   # GET /maps/1.json
   def show
     @map = Map.find(params[:id])
-
+    @onload = "initializegooglemaps('map_canvas',false,false,#{@map.latitude}, #{@map.longitude}, 17)"
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @map }
@@ -26,6 +26,8 @@ class MapsController < ApplicationController
   def new
     @map = Map.new
 
+    @onload = "initializegooglemaps('map_canvas',true,true,0, 0, 1)"
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @map }
@@ -35,6 +37,7 @@ class MapsController < ApplicationController
   # GET /maps/1/edit
   def edit
     @map = Map.find(params[:id])
+    @onload = "initializegooglemaps('map_canvas',true,true,#{@map.latitude}, #{@map.longitude}, 17)"
   end
 
   # POST /maps
