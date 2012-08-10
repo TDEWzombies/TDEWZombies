@@ -8,22 +8,22 @@ Feature: Manage Maps
 		Then I should see "Maps"
 		And I should see "TDEW Zombies"
 
-	Scenario: Click at new map button
+	Scenario: Click new map button
 		Given I am on the home page
 		When I follow "New"
 		Then I should see "New Map"
 
-	Scenario: Validate enter requiered information
+	Scenario: Validate requiered information for a new map
 		Given I am on the home page
 		When I follow "New"
 		And  I press "Create Map"
 		Then I should see "New Map"
 
-	Scenario: Create a valida Map
+	Scenario: Create a new valid Map
 		Given I am on the home page
 		When I follow "New"
 		And  I fill in "map_description" with "Desde cucumber"
-		And  I put in "map_latitude" with "20"
-		And  I put in "map_longitude" with "20"
+		And  I put in "map_latitude" with "-12.10109666094"
+		And  I put in "map_longitude" with "-77.0318036583984"
 		And  I press "Create Map"
 		Then I should see "Map was successfully created."
