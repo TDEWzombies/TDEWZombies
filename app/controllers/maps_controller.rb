@@ -54,6 +54,7 @@ class MapsController < ApplicationController
         format.json { render json: @map.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PUT /maps/1
@@ -70,6 +71,7 @@ class MapsController < ApplicationController
         format.json { render json: @map.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # DELETE /maps/1
@@ -82,5 +84,6 @@ class MapsController < ApplicationController
       format.html { redirect_to maps_url }
       format.json { head :no_content }
     end
+
   end
 end

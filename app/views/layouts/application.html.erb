@@ -9,6 +9,10 @@
 </head>
 <body <%= (" onload= \"#{@onload}\"").html_safe %>>
 
+  <% if flash[:notice] %>
+      <div id="notice"><%= flash[:notice] %></div>
+  <% end %>
+
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
